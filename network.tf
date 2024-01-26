@@ -1,5 +1,5 @@
 provider "aws" {
-  region = var.default_details.region
+    region = var.default_details.region
 }
 
 resource "aws_vpc" "vnet" {

@@ -1,19 +1,25 @@
-module "ntier-vpc" {
+module "mod_vpc" {
 
-    source          = "git::https://github.com/RaskinBond/vpc_module.git"
+    source          = "git::https://github.com/trrfrm/mod_vpc.git"
     default_details = {
       name          = "from-tf"
       region        = "ap-south-2"
     }
     vpc_details     = {
       name          = "vpc"
-      cidr_block    = "10.10.0.0/16"
+      cidr_block    = "10.0.0.0/16"
     }
     subnet_details {
       availability_zone = [ "ap-south-2a", "ap-south-2c" ]
     }
+    webserver_info {
+        name                    = "webservers"
+        key_name                = "deployment"
+        instance_type           = "t3.micro"
+        public_ip_enabled       = true
+    }
 }
 
 output "total_subnets" {
-    value           = length(module.vpc_module.aws_subnet.subnets)
+    value           = length(module.mod_vpc.aws_subnet.pub_subnets)
 }

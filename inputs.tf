@@ -25,11 +25,6 @@ variable "web_subnet_tags" {
     default         = [ "web1", "web2" ]
 }
 
-# variable "public_routes" {
-#     type            = list(string)
-#     default         = [ "webrt1", "webrt2" ]
-# }
-
 variable "webserver_info" {
     type                        = object({
         name                    = string
@@ -39,7 +34,7 @@ variable "webserver_info" {
     })
     default                     = {
         name                    = "webservers"
-        key_name                = "from_tf"
+        key_name                = "deployment"
         instance_type           = "t3.micro"
         public_ip_enabled       = true
     }

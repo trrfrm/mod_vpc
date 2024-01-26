@@ -11,16 +11,6 @@ locals {
     key_name             = "Legion"
     default_desc         = "Created from Terraform"
     webserver_tags       = [ "Jenkins-Master", "Jenkins-Agent" ]
-    env_prefix           = "Dev"
-
-    # db_subnet_groupname  = "stack-db-subnet-group"
-    # db_allocated_storage = 20
-    # db_name              = "mydb"
-    # db_engine            = "mysql"
-    # db_engine_version    = "8.0.32"
-    # db_instance_class    = "db.t3.micro"
-    # db_username          = "admin"
-    # db_password          = "admin123"
-    # db_identifier        = "myfirstrdsfromtf"
+    env_prefix           = "from-tf"
 
 }
