@@ -22,7 +22,6 @@ variable "vpc_details" {
 
 variable "subnet_tags" {
     type            = list(string)
-    default         = [ "web1", "web2" ]
 }
 
 variable "webserver_info" {
