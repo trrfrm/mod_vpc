@@ -9,9 +9,6 @@ module "mod_vpc" {
       name              = "vpc"
       cidr_block        = "10.0.0.0/16"
     }
-    subnet_tags         = {
-      names             = [ "web1", "web2" ]
-    }
     webserver_info      = {
       name              = "webservers"
       key_name          = "deployment"
