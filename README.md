@@ -1,4 +1,4 @@
-## module "ntier_vpc"
+## module: _mod_vpc_
 
 ### Creates a basic virtual private cloud in AWS using a terraform module along with 2 Jenkins {_Master-Agent_} Nodes with `latest-amazon-linux-image`
 ---------------------------------------------------------------------------------------------------------------------------
@@ -9,7 +9,7 @@
 
 
 ### Required Inputs
--------------------
+--------------------
 * These variables must be set in the `module` block when using this module.
 
 1. resource_group_name `string`
@@ -82,5 +82,5 @@ _**NOTE: For any module, the 'Attribute' is your `outputs.tf` to demonstrate the
 ### Example Usage
 -----------------
 
-* Kindly, Refer to the `./examples/` directory. 
-* You may execute `terraform apply` command in the examples's directory to try the "ntier_vpc" module
+* Kindly, Refer the `./examples/` directory
+* Execute `terraform apply` command in the examples's directory to check-out _mod_vpc_ module
