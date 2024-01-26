@@ -5,7 +5,7 @@ module "mod_vpc" {
       name              = "from-tf"
       region            = "ap-south-2"
     }
-    network_details         = {
+    network_details     = {
       name              = "tf-vpc"
       cidr_block        = "10.0.0.0/16"
     }
