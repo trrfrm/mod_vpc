@@ -7,7 +7,7 @@ module "mod_vpc" {
     }
     network_details     = {
       name              = "tf-vpc"
-      cidr_block        = "10.0.0.0/16"
+      cidr_block        = "10.10.0.0/16"
     }
 }
 
