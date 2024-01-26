@@ -15,7 +15,7 @@ resource "aws_subnet" "pub_subnets" {
     cidr_block           = cidrsubnet(var.vpc_details.cidr_block, 8, count.index)
     availability_zone    = format("${var.default_details.region}%s", count.index%2==0?"a":"b")
     tags                 = {
-        Name             = "$(env_prefix)-subnet"
+        Name             = "${env_prefix}-subnet"
     }
     depends_on           = [ aws_vpc.vnet ]
 }
