@@ -83,4 +83,5 @@ _**NOTE: For any module, the 'Attribute' is your `outputs.tf` to demonstrate the
 -----------------
 
 * Kindly, Refer the `./examples/` directory
+
 * Execute `terraform apply` command in the examples's directory to check-out _mod_vpc_ module
