@@ -21,7 +21,9 @@ variable "vpc_details" {
 }
 
 variable "subnet_tags" {
-    type            = list(string)
+    type      = object({
+        names = list(string)
+    })
 }
 
 variable "webserver_info" {
