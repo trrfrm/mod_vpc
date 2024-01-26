@@ -22,10 +22,10 @@ variable "vpc_details" {
 
 variable "subnet_tags" {
     type            = object({
-        name        = list(string)
+        names       = list(string)
     })
     default         = {
-        name        = [ "web1", "web2" ]
+        names       = [ "web1", "web2" ]
     }
 }
 
