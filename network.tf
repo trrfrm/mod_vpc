@@ -10,12 +10,12 @@ resource "aws_vpc" "vnet" {
 }
 
 resource "aws_subnet" "pub_subnets" {
-    count                = length(var.subnet_tags)
+    count                = local.count
     vpc_id               = aws_vpc.vnet.id
     cidr_block           = cidrsubnet(var.vpc_details.cidr_block, 8, count.index)
     availability_zone    = format("${var.default_details.region}%s", count.index%2==0?"a":"b")
     tags                 = {
-        Name             = var.subnet_tags[count.index]
+        Name             = local.env_prefix[count.index]
     }
     depends_on           = [ aws_vpc.vnet ]
 }
@@ -106,7 +106,7 @@ resource "aws_route_table" "private_rt" {
 }
 
 resource "aws_route_table_association" "a" {
-    count               = length(var.subnet_tags)
+    count               = local.count
     subnet_id           = aws_subnet.pub_subnets[count.index].id
     route_table_id      = count.index<2 ? aws_route_table.public_rt.id: aws_route_table.private_rt.id
                          #contains(var.public_routes, lookup(aws_subnet.pub_subnets[count.index].tags_all, "Name", "")) ? aws_route_table.public_rt.id: aws_route_table.private_rt.id
