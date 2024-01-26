@@ -1,4 +1,4 @@
-variable "default_details" {
+variable "default_region" {
     type            = object({
         name        = string
         region      = string
@@ -9,28 +9,13 @@ variable "default_details" {
     }
 }
 
-variable "vpc_details" {
+variable "network_details" {
     type            = object({
         name        = string
         cidr_block  = string
     })
     default         = {
-        name        = "tf-vpc"
-        cidr_block  = "10.10.0.0/16"
-    }
-}
-
-variable "webserver_info" {
-    type                        = object({
-        name                    = string
-        key_name                = string
-        instance_type           = string
-        public_ip_enabled       = bool        
-    })
-    default                     = {
-        name                    = "webservers"
-        key_name                = "deployment"
-        instance_type           = "t3.micro"
-        public_ip_enabled       = true
+        name        = "tf-vnet"
+        cidr_block  = "10.0.0.0/16"
     }
 }

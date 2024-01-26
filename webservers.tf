@@ -6,8 +6,8 @@
 resource "aws_instance" "WebServer" {
   count                         = local.count
   ami                           = data.aws_ami.latest-amazon-linux-image.id
-  instance_type                 = var.webserver_info.instance_type
-  associate_public_ip_address   = var.webserver_info.public_ip_enabled
+  instance_type                 = local.instance_type
+  associate_public_ip_address   = local.public_ip_enabled
   key_name                      = local.key_name 
   subnet_id                     = aws_subnet.pub_subnets[count.index].id
   vpc_security_group_ids        = [aws_security_group.Web-SG.id]

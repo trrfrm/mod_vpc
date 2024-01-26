@@ -1,19 +1,13 @@
 module "mod_vpc" {
 
     source              = "git::https://github.com/trrfrm/mod_vpc.git"
-    default_details     = {
+    default_region      = {
       name              = "from-tf"
       region            = "ap-south-2"
     }
-    vpc_details         = {
-      name              = "vpc"
+    network_details         = {
+      name              = "tf-vpc"
       cidr_block        = "10.0.0.0/16"
-    }
-    webserver_info      = {
-      name              = "webservers"
-      key_name          = "deployment"
-      instance_type     = "t3.micro"
-      public_ip_enabled = true
     }
 }
 
