@@ -3,17 +3,17 @@ provider "aws" {
 }
 
 resource "aws_vpc" "vnet" {
-    cidr_block          = var.vpc_details.cidr_block
+    cidr_block          = var.network_details.cidr_block
     tags                = {
-        Name            = var.vpc_details.name
+        Name            = var.network_details.name
     }
 }
 
 resource "aws_subnet" "pub_subnets" {
     count                = local.count
     vpc_id               = aws_vpc.vnet.id
-    cidr_block           = cidrsubnet(var.vpc_details.cidr_block, 8, count.index)
-    availability_zone    = format("${var.default_details.region}%s", count.index%2==0?"a":"b")
+    cidr_block           = cidrsubnet(var.network_details.cidr_block, 8, count.index)
+    availability_zone    = format("${var.default_region.region}%s", count.index%2==0?"a":"b")
     tags                 = {
         Name             = "${local.env_prefix}-subnet"
     }
