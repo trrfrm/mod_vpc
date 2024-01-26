@@ -4,7 +4,7 @@
 # }
 
 resource "aws_instance" "WebServer" {
-  count                         = length(var.web_subnet_tags) 
+  count                         = length(var.subnet_tags) 
   ami                           = data.aws_ami.latest-amazon-linux-image.id
   instance_type                 = var.webserver_info.instance_type
   associate_public_ip_address   = var.webserver_info.public_ip_enabled
@@ -16,5 +16,4 @@ resource "aws_instance" "WebServer" {
       Name                      = local.webserver_tags[count.index]
   }
   depends_on = [ aws_vpc.vnet, aws_subnet.pub_subnets]
-
 }

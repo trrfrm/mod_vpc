@@ -9,6 +9,9 @@ module "mod_vpc" {
       name          = "vpc"
       cidr_block    = "10.0.0.0/16"
     }
+    subnet_tags {
+      name          = [ "web1", "web2" ]
+    }
     subnet_details {
       availability_zone = [ "ap-south-2a", "ap-south-2c" ]
     }
@@ -21,5 +24,5 @@ module "mod_vpc" {
 }
 
 output "total_subnets" {
-    value           = length(module.mod_vpc.aws_subnet.pub_subnets)
+    value           = module.mod_vpc.subnet_count
 }

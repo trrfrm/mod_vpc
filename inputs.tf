@@ -20,9 +20,13 @@ variable "vpc_details" {
     }
 }
 
-variable "web_subnet_tags" {
-    type            = list(string)
-    default         = [ "web1", "web2" ]
+variable "subnet_tags" {
+    type            = object({
+        name        = list(string)
+    })
+    default         = {
+        name        = [ "web1", "web2" ]
+    }
 }
 
 variable "webserver_info" {

@@ -1,9 +1,9 @@
-data "aws_subnets" "pub_subnets" {
-  filter {
-    name   = "tag:Name"
-    values = var.web_subnet_tags
-  }
-}
+# data "aws_subnets" "pub_subnets" {
+#   filter {
+#     name   = "tag:Name"
+#     values = var.subnet_tags
+#   }
+# }
 
 data "aws_ami" "latest-amazon-linux-image" {
   most_recent = true
@@ -17,4 +17,3 @@ data "aws_ami" "latest-amazon-linux-image" {
     values    = [ "hvm" ]
   }
 }
-
